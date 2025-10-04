@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36327.8 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{4505D634-41B6-4BD7-852B-CE5A177C0E5F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Persistance", "Persistance", "{5F00242A-213C-4C90-92B0-7DE6AB2320D8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Application", "Core\ECommerce.Application\ECommerce.Application.csproj", "{16FF6ADC-71BB-4381-B482-1BD2F567892A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Domain", "Core\ECommerce.Domain\ECommerce.Domain.csproj", "{DD492840-A85F-4EB5-936F-C62FC60ED86C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Infrastructure", "Infrastructure\ECommerce.Infrastructure\ECommerce.Infrastructure.csproj", "{D8B74783-7F05-4551-876A-0A15359B0753}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.Persistance", "Infrastructure\ECommerce.Persistance\ECommerce.Persistance.csproj", "{B2CC3A23-F0CE-4535-8502-BC41E4A2ED2E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECommerce.API", "ECommerce.API\ECommerce.API.csproj", "{70365649-4FC6-46B4-8A82-77A8DB0C377A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{16FF6ADC-71BB-4381-B482-1BD2F567892A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16FF6ADC-71BB-4381-B482-1BD2F567892A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16FF6ADC-71BB-4381-B482-1BD2F567892A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{16FF6ADC-71BB-4381-B482-1BD2F567892A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD492840-A85F-4EB5-936F-C62FC60ED86C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD492840-A85F-4EB5-936F-C62FC60ED86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD492840-A85F-4EB5-936F-C62FC60ED86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD492840-A85F-4EB5-936F-C62FC60ED86C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8B74783-7F05-4551-876A-0A15359B0753}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8B74783-7F05-4551-876A-0A15359B0753}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8B74783-7F05-4551-876A-0A15359B0753}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8B74783-7F05-4551-876A-0A15359B0753}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2CC3A23-F0CE-4535-8502-BC41E4A2ED2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2CC3A23-F0CE-4535-8502-BC41E4A2ED2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2CC3A23-F0CE-4535-8502-BC41E4A2ED2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2CC3A23-F0CE-4535-8502-BC41E4A2ED2E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70365649-4FC6-46B4-8A82-77A8DB0C377A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70365649-4FC6-46B4-8A82-77A8DB0C377A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70365649-4FC6-46B4-8A82-77A8DB0C377A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70365649-4FC6-46B4-8A82-77A8DB0C377A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{16FF6ADC-71BB-4381-B482-1BD2F567892A} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{DD492840-A85F-4EB5-936F-C62FC60ED86C} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{D8B74783-7F05-4551-876A-0A15359B0753} = {4505D634-41B6-4BD7-852B-CE5A177C0E5F}
+		{B2CC3A23-F0CE-4535-8502-BC41E4A2ED2E} = {4505D634-41B6-4BD7-852B-CE5A177C0E5F}
+		{70365649-4FC6-46B4-8A82-77A8DB0C377A} = {5F00242A-213C-4C90-92B0-7DE6AB2320D8}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {FFA61C0D-3BF4-48DF-8268-DFD953C429B4}
+	EndGlobalSection
+EndGlobal
