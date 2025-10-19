@@ -19,3 +19,5 @@ namespace ECommerce.Persistance
         }
     }
 }
+
+// End of file ECommerce.Persistance/Registration.cs
