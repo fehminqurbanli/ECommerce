@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ECommerce.Application.DTOs;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,6 @@ namespace ECommerce.Application.Features.MainCategories.Queries.GetAllMainCatego
     {
         public string Name { get; set; }
         public string? Description { get; set; }
+        public ICollection<SubCategoryDTO> SubCategories { get; set; }
     }
 }
