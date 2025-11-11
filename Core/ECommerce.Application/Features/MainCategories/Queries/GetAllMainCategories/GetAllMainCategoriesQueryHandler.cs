@@ -1,6 +1,9 @@
-﻿using ECommerce.Application.Interfaces.UnitOfWorks;
+﻿using ECommerce.Application.AutoMapper;
+using ECommerce.Application.DTOs;
+using ECommerce.Application.Interfaces.UnitOfWorks;
 using ECommerce.Domain.Entities;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,29 +17,24 @@ namespace ECommerce.Application.Features.MainCategories.Queries.GetAllMainCatego
             IList<GetAllMainCategoriesQueryResponse>>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IMapper _mapper;
 
-        public GetAllMainCategoriesQueryHandler(IUnitOfWork unitOfWork)
+        public GetAllMainCategoriesQueryHandler(IUnitOfWork unitOfWork, IMapper mapper)
         {
             _unitOfWork = unitOfWork;
+            _mapper = mapper;
         }
 
         public async Task<IList<GetAllMainCategoriesQueryResponse>> Handle(GetAllMainCategoriesQueryRequest request, CancellationToken cancellationToken)
         {
             var products = await _unitOfWork
-                .GetReadRepository<MainCategory>().GetAllAsync();
+                .GetReadRepository<MainCategory>().GetAllAsync(include: x=>x.Include(s=>s.SubCategories));
 
-            List<GetAllMainCategoriesQueryResponse> response = new();
+           _mapper.Map<SubCategoryDTO,SubCategory>(new SubCategory());
 
-            foreach (var product in products)
-            {
-                response.Add(new GetAllMainCategoriesQueryResponse
-                {
-                    Name = product.Name,
-                    Description = product.Description
-                });
-            }
+            var map = _mapper.Map<GetAllMainCategoriesQueryResponse, MainCategory>(products);
 
-            return response;
+            return map;
         }
     }
 }
