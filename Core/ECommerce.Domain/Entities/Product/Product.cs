@@ -1,4 +1,5 @@
 ﻿using ECommerce.Domain.Common;
+using ECommerce.Domain.Entities.Delivery;
 
 namespace ECommerce.Domain.Entities.Product
 {
@@ -12,10 +13,10 @@ namespace ECommerce.Domain.Entities.Product
         public double DiscountedPrice { get; set; }
         public double Discount { get; set; }
         public SellerCompany.SellerCompany SellerCompany { get; set; } //satan şirkət üçün cədvəl yaradılacaq
-        public Guid DeliveryId { get; set; } //Çatdırılma üçün cədvəl yaradılacaq
-        public Guid PaymentId { get; set; } //Çatdırılma üçün cədvəl yaradılacaq
-        public Guid CommentId { get; set; } //Şərhlər və qiymətləndirmə
-        public Guid ProductDetailId { get; set; } //Məhsul haqqında Detallı məlumat
+        public Delivery.Delivery Delivery { get; set; } //Çatdırılma üçün cədvəl yaradılacaq
+        public Payment.Payment Payment { get; set; } //Çatdırılma üçün cədvəl yaradılacaq
+        public CommentAndRating.CommentAndRate CommentAndRate { get; set; } //Şərhlər və qiymətləndirmə
+     
 
     }
 }
