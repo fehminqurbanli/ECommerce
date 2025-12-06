@@ -1,4 +1,5 @@
 using ECommerce.Application;
+using ECommerce.Application.Exceptions;
 using ECommerce.Mapper;
 using ECommerce.Persistance;
 
@@ -31,8 +32,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-//app.UseSwagger();
-//app.UseSwaggerUI();
+app.ConfigureExceptionHandlingMiddleware();
 
 app.UseAuthorization();
 

@@ -1,5 +1,6 @@
 ﻿using ECommerce.Application.AutoMapper;
 using ECommerce.Application.DTOs;
+using ECommerce.Application.Exceptions;
 using ECommerce.Application.Interfaces.UnitOfWorks;
 using ECommerce.Domain.Entities;
 using MediatR;
@@ -28,13 +29,15 @@ namespace ECommerce.Application.Features.MainCategories.Queries.GetAllMainCatego
         public async Task<IList<GetAllMainCategoriesQueryResponse>> Handle(GetAllMainCategoriesQueryRequest request, CancellationToken cancellationToken)
         {
             var products = await _unitOfWork
-                .GetReadRepository<MainCategory>().GetAllAsync(include: x=>x.Include(s=>s.SubCategories));
+                .GetReadRepository<MainCategory>().GetAllAsync();
 
            _mapper.Map<SubCategoryDTO,SubCategory>(new SubCategory());
 
             var map = _mapper.Map<GetAllMainCategoriesQueryResponse, MainCategory>(products);
 
-            return map;
+            //return map;
+
+            throw new Exception("xəta mesajı");
         }
     }
 }
