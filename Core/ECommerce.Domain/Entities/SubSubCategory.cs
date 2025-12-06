@@ -12,7 +12,7 @@ namespace ECommerce.Domain.Entities
         public string Name { get; set; }
         public string? Description { get; set; }
         public bool IsActive { get; set; }
-        public int SubCategoryId { get; set; }
+        public Guid? SubCategoryId { get; set; }
         public SubCategory SubCategory { get; set; }
     }
 }

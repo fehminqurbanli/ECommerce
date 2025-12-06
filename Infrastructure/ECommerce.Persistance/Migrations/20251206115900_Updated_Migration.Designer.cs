@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ECommerce.Persistance.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20251012075915_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20251206115900_Updated_Migration")]
+    partial class Updated_Migration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,11 +27,9 @@ namespace ECommerce.Persistance.Migrations
 
             modelBuilder.Entity("ECommerce.Domain.Entities.MainCategory", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -57,11 +55,9 @@ namespace ECommerce.Persistance.Migrations
 
             modelBuilder.Entity("ECommerce.Domain.Entities.SubCategory", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -75,8 +71,8 @@ namespace ECommerce.Persistance.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<int>("MainCategoryId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("MainCategoryId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -92,11 +88,9 @@ namespace ECommerce.Persistance.Migrations
 
             modelBuilder.Entity("ECommerce.Domain.Entities.SubSubCategory", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
@@ -115,8 +109,8 @@ namespace ECommerce.Persistance.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
-                    b.Property<int>("SubCategoryId")
-                        .HasColumnType("int");
+                    b.Property<Guid?>("SubCategoryId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.HasKey("Id");
 
@@ -129,9 +123,7 @@ namespace ECommerce.Persistance.Migrations
                 {
                     b.HasOne("ECommerce.Domain.Entities.MainCategory", "MainCategory")
                         .WithMany("SubCategories")
-                        .HasForeignKey("MainCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("MainCategoryId");
 
                     b.Navigation("MainCategory");
                 });
@@ -140,9 +132,7 @@ namespace ECommerce.Persistance.Migrations
                 {
                     b.HasOne("ECommerce.Domain.Entities.SubCategory", "SubCategory")
                         .WithMany("SubSubCategories")
-                        .HasForeignKey("SubCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("SubCategoryId");
 
                     b.Navigation("SubCategory");
                 });
