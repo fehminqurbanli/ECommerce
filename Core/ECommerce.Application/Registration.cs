@@ -1,4 +1,5 @@
 ﻿using ECommerce.Application.Exceptions;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -18,6 +19,8 @@ namespace ECommerce.Application
             services.AddTransient<ExceptionMiddleware>();
 
             services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(assembly));
+
+            services.AddValidatorsFromAssembly(assembly);
         }
     }
 }
