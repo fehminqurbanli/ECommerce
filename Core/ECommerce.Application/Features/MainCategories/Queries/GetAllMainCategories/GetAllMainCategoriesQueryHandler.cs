@@ -1,15 +1,9 @@
 ﻿using ECommerce.Application.AutoMapper;
 using ECommerce.Application.DTOs;
-using ECommerce.Application.Exceptions;
 using ECommerce.Application.Interfaces.UnitOfWorks;
 using ECommerce.Domain.Entities;
 using MediatR;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ECommerce.Application.Features.MainCategories.Queries.GetAllMainCategories
 {
@@ -35,9 +29,7 @@ namespace ECommerce.Application.Features.MainCategories.Queries.GetAllMainCatego
 
             var map = _mapper.Map<GetAllMainCategoriesQueryResponse, MainCategory>(products);
 
-            //return map;
-
-            throw new Exception("xəta mesajı");
+            return map;
         }
     }
 }
