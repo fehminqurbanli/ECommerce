@@ -1,5 +1,6 @@
 ﻿using ECommerce.Application.Interfaces.Persistance;
 using ECommerce.Application.Interfaces.UnitOfWorks;
+using ECommerce.Domain.Entities.User;
 using ECommerce.Persistance.Context;
 using ECommerce.Persistance.Repositories;
 using ECommerce.Persistance.UnitOfWorks;
@@ -25,6 +26,18 @@ namespace ECommerce.Persistance
             services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            services.AddIdentityCore<User>(opt =>
+            {
+                opt.Password.RequireNonAlphanumeric = false;
+                opt.Password.RequireUppercase = false;
+                opt.Password.RequireLowercase = false;
+                opt.Password.RequireDigit = false;
+                opt.Password.RequiredLength = 3;
+                opt.SignIn.RequireConfirmedEmail = false;
+            })
+                .AddRoles<Role>()
+                .AddEntityFrameworkStores<AppDbContext>();
         }
     }
 }
