@@ -1,5 +1,6 @@
 using ECommerce.Application;
 using ECommerce.Application.Exceptions;
+using ECommerce.Infrastructure;
 using ECommerce.Mapper;
 using ECommerce.Persistance;
 
@@ -20,6 +21,7 @@ builder.Configuration
     .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true);
 
 builder.Services.AddPersistance(builder.Configuration);
+builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddApplicationServices();
 builder.Services.AddCustomMapper();
 
