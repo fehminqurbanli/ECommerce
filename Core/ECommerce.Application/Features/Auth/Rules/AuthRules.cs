@@ -13,5 +13,11 @@ namespace ECommerce.Application.Features.Auth.Rules
             
             return Task.CompletedTask;
         }
+
+        public Task EmailOrPasswordShouldBeValid(User? user, bool checkPassword)
+        {
+            if(user == null || !checkPassword) throw new EmailOrPasswordShouldBeValidException();
+            return Task.CompletedTask;
+        }
     }
 }
