@@ -24,6 +24,7 @@
   <ItemGroup>
     <Folder Include="Features\Auth\Queries\" />
     <Folder Include="Features\MainCategories\Commands\" />
+    <Folder Include="Features\RefreshToken\" />
   </ItemGroup>
 
 </Project>
